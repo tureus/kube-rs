@@ -12,7 +12,7 @@ jobs:
         # TODO: add windows-latest (see #566)
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.1.0
       - uses: actions-rs/toolchain@v1
         with:
           override: true
@@ -62,7 +62,7 @@ jobs:
     # Run `cargo check` on our minimum supported Rust version
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
+    - uses: actions/checkout@v3.1.0
     - name: Find MSRV
       id: msrv
       run: |
@@ -85,7 +85,7 @@ jobs:
     # e2e tests are docker on linux
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.1.0
 
       - uses: actions/cache@v2
         with:
@@ -145,7 +145,7 @@ jobs:
     continue-on-error: ${{ matrix.checks == 'advisories' }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.1.0
       - uses: EmbarkStudios/cargo-deny-action@v1
         with:
           command: check ${{ matrix.checks }}
@@ -154,7 +154,7 @@ jobs:
     name: Run rustfmt
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.1.0
       - uses: actions-rs/toolchain@v1.0.7
         with:
           profile: minimal
